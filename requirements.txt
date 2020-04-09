@@ -1,0 +1,10 @@
+asgiref         
+dj-database-url   
+Django           
+Pillow         
+pip             
+psycopg2        
+pytz           
+setuptools      
+sqlparse        
+wheel

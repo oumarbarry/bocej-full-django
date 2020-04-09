@@ -1,0 +1,145 @@
+{% extends 'bocej_aguipe/_base.html' %}
+{% load static %}
+{% block title %}CREATION DE CENTRE{% endblock %}
+
+{% block active-nav %}<br>
+<ul id="mainnav-menu" class="list-group">
+    <li>
+        <a href="{% url 'bocej_aguipe:home' %}">
+            <i class="demo-pli-home"></i>
+            <span class="menu-title">Accueil</span>
+        </a>
+    </li>
+    <li class="active-sub">
+        <a href="#">
+            <i class="ti-home"></i>
+            <span class="menu-title">CENTRE</span>
+            <i class="arrow"></i>
+        </a>
+        <!--Submenu-->
+        <ul class="collapse in">
+            <li class="active-link"><a href="{% url 'bocej_aguipe:add_center' %}">CREATION DE CENTRE</a></li>
+            <li><a href="">LISTE DES CENTRES</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <i class="demo-pli-file-html"></i>
+            <span class="menu-title">EMAIL</span>
+            <i class="arrow"></i>
+        </a>
+        <!--Submenu-->
+        <ul class="collapse">
+            <li><a href="">Blank Page</a></li>
+        </ul>
+    </li>  
+</ul>
+{% endblock %}    
+
+{% block css %}
+    <link href="{% static 'plugins/bootstrap-validator/bootstrapValidator.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap-validator/bootstrapValidator.min.js' %}"></script>
+    <script src="{% static 'plugins/masked-input/jquery.maskedinput.min.js' %}"></script>
+    <script src="{% static 'js/demo/form-validation.js' %}"></script>
+{% endblock %}
+
+{% block page-head %}{% endblock %}
+    
+{% block page-content %}
+<br><br>
+<div class="row">
+    <div class="col-lg-2">&nbsp;</div>
+    <div class="col-lg-8">
+        <form id="demo-bv-accordion" class="form-horizontal bv-form" action="#" method="post" novalidate="novalidate"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+            <div id="demo-accordion" class="panel-group accordion">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="text-center" data-parent="#demo-accordion" data-toggle="collapse" href="#demo-acc-panel-1">CREATION DU CENTRE</a>
+                        </h4>
+                    </div>
+                    <div id="demo-acc-panel-1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ center_form.c_title }}
+                                    <small class="help-block">{{ center_form.c_title.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ center_form.c_address }}
+                                    <small class="help-block">{{ center_form.c_address.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ center_form.c_email }}
+                                    <small class="help-block">{{ center_form.c_email.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ center_form.c_phone }}
+                                    <small class="help-block">{{ center_form.c_phone.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group" align="center">
+                                    <a href="#demo-acc-panel-3" data-parent="#demo-accordion" data-toggle="collapse" class="btn btn-primary">Suivant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="text-center" data-parent="#demo-accordion" data-toggle="collapse" href="#demo-acc-panel-3">CREATION DE L'ADMIN DU CENTRE</a>
+                        </h4>
+                    </div>
+                    <div id="demo-acc-panel-3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ user_center_form.full_name }}
+                                    <small class="help-block">{{ user_center_form.full_name.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ user_center_form.username }}
+                                    <small class="help-block">{{ user_center_form.username.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ user_center_form.email }}
+                                    <small class="help-block">{{ user_center_form.email.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ user_center_form.password }}
+                                    <small class="help-block">{{ user_center_form.password.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    {{ user_center_form.phone }}
+                                    <small class="help-block">{{ user_center_form.phone.errors }}</small>
+                                </div>
+                            </div>
+                            <div class="form-group" align="center">
+                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-2">&nbsp;</div>
+</div>
+{% endblock %}
