@@ -1,1 +1,1 @@
-web: gunicorn bocej.wsgi
+web: gunicorn bocej.wsgi --log-file -
