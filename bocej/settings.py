@@ -13,10 +13,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(ahn@3+k+(!9y+x#!b1_!@@ug&)f2e7la#+%ov9%x9)!l@0p_7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
+#if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
-else:
-    DEBUG = True
+#else:
+    #DEBUG = True
 
 ALLOWED_HOSTS = ['bocejgn.herokuapp.com', 'localhost']
 
@@ -75,7 +75,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -115,15 +116,14 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 LOGIN_URL = '/login'
 
-if os.environ.get('ENV') == 'PRODUCTION':    
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#if os.environ.get('ENV') == 'PRODUCTION':    
+    #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-    db_from_env = dj_database_url.config()
-    DATABASES['default'].update(db_from_env)
+    
